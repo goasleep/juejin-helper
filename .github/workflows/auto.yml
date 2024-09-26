@@ -31,6 +31,12 @@ jobs:
           cd workflows
           yarn
           yarn checkin
+        continue-on-error: true
+      - uses: nick-fields/retry@v2
+        with:
+            max_attempts: 3
+            retry_on: failure
+        continue-on-error: true
 
 #  SeaGold:
 #    needs: CheckIn
